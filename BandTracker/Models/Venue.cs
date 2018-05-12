@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using BandTracker;
-using BandTracker.Models;
 
 namespace BandTracker.Models
 {
@@ -12,10 +11,10 @@ namespace BandTracker.Models
     private string _venueName;
     private string _location;
     private string _date;
-  }
-  public Venue(string name, string location, string date, int id=0)
+
+  public Venue (string name, string location, string date, int Id = 0)
   {
-    _id= id;
+    _id = Id;
     _venueName = name;
     _location = location;
     _date = date;
@@ -68,7 +67,7 @@ namespace BandTracker.Models
        conn.Open();
        MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
        cmd.CommandText = @"SELECT * FROM venues;";
-       MySqlReader rdr = cmd.ExecuteReader() as MySqlReader;
+       MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
        while(rdr.Read())
        {
          int id = rdr.GetInt32(0);
@@ -248,3 +247,4 @@ namespace BandTracker.Models
       }
     }
   }
+}

@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+<h3>@Model["band"].GetBandName()</h3>
+<div class="container container-fluid">
+  <div class="row1">
+    <div class="col-md-12">
+      <p>Band Id</p>
+      <p>Band Name</p>
+    </div>
+  </div>
+  @foreach(var venue in Model["venues"])
+  {
+    <div class="row2">
+      <div class="col-md-12">
+        <p>@venue.GetId()</p>
+        <p>@venue.GetVenueName()</p>
+      </div>
+    </div>
+  }
+</div>

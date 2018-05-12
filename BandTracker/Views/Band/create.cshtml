@@ -1,0 +1,36 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container container-fluid">
+  <div class="row1">
+    <div class="col-md-12">
+      <p>Band Id</p>
+      <p>Band Name</p>
+      <p>Delete this band</p>
+      <p>Update band details</p>
+    </div>
+  </div>
+  @foreach(var band in Model)
+  {
+    <div class="row2">
+      <div class="col-md-12">
+        <p>@band.GetId()</p>
+        <p><a href="/band-index/@band.GetId()">@band.GetBandName()</a></p>
+        <p><a href="/delete-band/@band.GetId()">Delete Band</a></p>
+        <p><a href="/update-band/@band.GetId()">Update band description</a></p>
+      </div>
+    </div>
+  }
+</div>
+
+<h3>Add new band</h3>
+<form action="/create-band" method="post">
+  <div class="form-group">
+    <label for="band-name">Enter Band Name</label>
+    <input id="band-name" name="band-name" class="form-control" type="text" required>
+    <label for="band-origin">Enter Venue Location</label>
+    <input id="band-origin" name="band-origin" class="form-control" type="text" required>
+  </div>
+  <button class="btn btn-info" type="submit">Create new band</button>
+</form>

@@ -1,0 +1,38 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container container-fluid">
+  <div class="row1">
+    <div class="col-md-12">
+      <p>Venue Id</p>
+      <p>Venue Name</p>
+      <p>Delete this venue</p>
+      <p>Update venue details</p>
+    </div>
+  </div>
+  @foreach(var venue in Model)
+  {
+    <div class="row2">
+      <div class="col-md-12">
+        <p>@venue.GetId()</p>
+        <p><a href="/venue-index/@venue.GetId()">@venue.GetVenueName()</a></p>
+        <p><a href="/delete-venue/@venue.GetId()">Delete Venue</a></p>
+        <p><a href="/update-venue/@venue.GetId()">Update venue description</a></p>
+      </div>
+    </div>
+  }
+</div>
+
+<h3>Add new venue</h3>
+<form action="/create-venue" method="post">
+  <div class="form-group">
+    <label for="venue-name">Enter Venue Name</label>
+    <input id="venue-name" name="venue-name" class="form-control" type="text" required>
+    <label for="venue-location">Enter Venue Location</label>
+    <input id="venue-location" name="venue-location" class="form-control" type="text" required>
+    <label for="venue-date">Enter Venue Date(mm-dd-yy)</label>
+    <input id="venue-date" name="venue-date" class="form-control" type="text" required>
+  </div>
+  <button class="btn btn-info" type="submit">Create new venue</button>
+</form>
