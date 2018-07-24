@@ -1,7 +1,8 @@
 # Band Tracker App
-<hr>
+
 ##### Created on May 11, 2018
-##### _**Kristi Hwang**_
+
+##### **Kristi Hwang**
 
 ### Description
 
